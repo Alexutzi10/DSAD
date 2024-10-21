@@ -31,7 +31,10 @@ class Student:
     
     @staticmethod
     def calculateAvg(students):
-        avg = sum([student.avgGrade for student in students]) / len(students)
+        avg = 0
+        for student in students:
+            avg += student.avgGrade
+        avg /= len(students)
         return avg
     
     @staticmethod
@@ -51,4 +54,6 @@ print('Cerinta 3:')
 filtered_students = Student.filterStudents(students)
 print('\n--------------------------\n')
 print("Cerinta 4:")
-print(Student.calculateStdDev(students))
+print('Media: ', round(Student.calculateAvg(students), 2))
+print('Standard deviation: ', round((Student.calculateStdDev(students)), 2))
+
